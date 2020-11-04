@@ -16,6 +16,8 @@ func main() {
 	text := args[1]
 	text = strings.TrimSpace(text)
 	text = strings.ToLower(text)
+	text = strings.ReplaceAll(text, "'", "_")
+	text = strings.ReplaceAll(text, `"`, "_")
 	text = strings.ReplaceAll(text, " ", "_")
 
 	fmt.Println(text)
