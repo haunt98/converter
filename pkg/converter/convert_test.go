@@ -33,6 +33,26 @@ func TestConvert(t *testing.T) {
 			text: `a"'b c"'d`,
 			want: "a__b_c__d",
 		},
+		{
+			name: "comma",
+			text: "a,b",
+			want: "a_b",
+		},
+		{
+			name: "left parenthesis",
+			text: "a(b",
+			want: "a_b",
+		},
+		{
+			name: "right parenthesis",
+			text: "a)b",
+			want: "a_b",
+		},
+		{
+			name: "parenthesis",
+			text: "(ab)",
+			want: "_ab_",
+		},
 	}
 
 	for _, tc := range tests {

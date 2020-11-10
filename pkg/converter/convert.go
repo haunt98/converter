@@ -8,6 +8,9 @@ func Convert(text string) string {
 	text = strings.ReplaceAll(text, "'", "_")
 	text = strings.ReplaceAll(text, `"`, "_")
 	text = strings.ReplaceAll(text, " ", "_")
+	text = strings.ReplaceAll(text, ",", "_")
+	text = strings.ReplaceAll(text, "(", "_")
+	text = strings.ReplaceAll(text, ")", "_")
 
 	return text
 }
