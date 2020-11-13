@@ -31,7 +31,7 @@ func TestConvert(t *testing.T) {
 		{
 			name: "mixed",
 			text: `a"'b c"'d`,
-			want: "a__b_c__d",
+			want: "a_b_c_d",
 		},
 		{
 			name: "comma",
@@ -66,6 +66,11 @@ func TestConvert(t *testing.T) {
 		{
 			name: "colon",
 			text: "a:b:c",
+			want: "a_b_c",
+		},
+		{
+			name: "_ duplicate",
+			text: "a__b___c",
 			want: "a_b_c",
 		},
 	}

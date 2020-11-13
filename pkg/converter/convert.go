@@ -1,6 +1,9 @@
 package converter
 
-import "strings"
+import (
+	"regexp"
+	"strings"
+)
 
 const (
 	normalizedChar = "_"
@@ -18,6 +21,8 @@ var denyChars = []string{
 	":",
 }
 
+var reNormalizedDuplicate = regexp.MustCompile(`_+`)
+
 func Convert(text string) string {
 	text = strings.TrimSpace(text)
 	text = strings.ToLower(text)
@@ -25,6 +30,8 @@ func Convert(text string) string {
 	for _, denyChar := range denyChars {
 		text = strings.ReplaceAll(text, denyChar, normalizedChar)
 	}
+
+	text = reNormalizedDuplicate.ReplaceAllString(text, "_")
 
 	return text
 }
