@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v0.3.0 (2020-11-13)
+
+### Added
+
+- feat: remove duplicate _
+
+### Others
+
+- chore: generate CHANGELOG v0.2.0
+
 ## v0.2.0 (2020-11-13)
 
 ### Added
