@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## v0.2.0 (2020-11-13)
+
+### Added
+
+- feat: add colon to deny chars
+
+### Others
+
+- test: add unit test for string contains tab, newline
+
+- refactor: use deny chars as a list to remove hardcode
+
+- chore: add MIT LICENSE
+
+- chore: add github action badge in README
+
+- chore: generate CHANGELOG v0.1.0
+
 ## v0.1.0 (2020-11-13)
 
 ### Added
