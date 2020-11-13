@@ -15,6 +15,7 @@ var denyChars = []string{
 	",",
 	"(",
 	")",
+	":",
 }
 
 func Convert(text string) string {
