@@ -53,6 +53,16 @@ func TestConvert(t *testing.T) {
 			text: "(ab)",
 			want: "_ab_",
 		},
+		{
+			name: "tab",
+			text: "a\tb\tc",
+			want: "a_b_c",
+		},
+		{
+			name: "newline",
+			text: "a\nb\nc",
+			want: "a_b_c",
+		},
 	}
 
 	for _, tc := range tests {
