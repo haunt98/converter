@@ -1,5 +1,7 @@
 # converter
 
+![Go](https://github.com/haunt98/converter/workflows/Go/badge.svg?branch=master)
+
 Tool to convert string
 
 ## Install
