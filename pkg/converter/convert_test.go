@@ -7,6 +7,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+const (
+	maxFuzzyTest = 1000
+)
+
 func TestConvert(t *testing.T) {
 	tests := []struct {
 		name string
@@ -94,7 +98,7 @@ func TestFuzzyConvert(t *testing.T) {
 	f := fuzz.New()
 	var text string
 
-	for i := 0; i < 1000; i++ {
+	for i := 0; i < maxFuzzyTest; i++ {
 		f.Fuzz(&text)
 		text = Convert(text)
 		assert.Equal(t, true, isNormalText(text))
