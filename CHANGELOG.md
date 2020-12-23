@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## v0.4.0 (2020-12-23)
+
+### Added
+
+- feat(converter): use whitelist approach
+
+### Fixed
+
+- fix(converter): add normalized char to check rule
+
+### Others
+
+- test(converter): use maxFuzzyTest for const
+
+- refactor(converter): rename isNormalRune to isNormalChar
+
+- refactor(converter): finalText rename to tempText
+
+- test(converter): use fuzzy testing
+
+- chore: add build using gotip in github action
+
+- chore: generate CHANGELOG v0.3.0
+
 ## v0.3.0 (2020-11-13)
 
 ### Added
