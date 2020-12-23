@@ -1,6 +1,11 @@
 package converter
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+
+	fuzz "github.com/google/gofuzz"
+)
 
 func TestConvert(t *testing.T) {
 	tests := []struct {
@@ -82,5 +87,16 @@ func TestConvert(t *testing.T) {
 				t.Errorf("got %s want %s", got, tc.want)
 			}
 		})
+	}
+}
+
+func TestFuzzyConvert(t *testing.T) {
+	f := fuzz.New()
+	var text string
+
+	for i := 0; i < 1000; i++ {
+		f.Fuzz(&text)
+		text = Convert(text)
+		fmt.Println(text)
 	}
 }

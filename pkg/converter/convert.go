@@ -18,8 +18,7 @@ func Convert(text string) string {
 	// whitelist approach
 	finalText := ""
 	for _, c := range text {
-		if (c >= 'a' && c <= 'z') ||
-			(c >= '0' && c <= '9') {
+		if isNormalRune(c) {
 			finalText += string(c)
 			continue
 		}
@@ -32,4 +31,19 @@ func Convert(text string) string {
 	text = reNormalizedDuplicate.ReplaceAllString(text, "_")
 
 	return text
+}
+
+func isNormalText(text string) bool {
+	for _, c := range text {
+		if !isNormalRune(c) {
+			return false
+		}
+	}
+
+	return true
+}
+
+func isNormalRune(c rune) bool {
+	return (c >= 'a' && c <= 'z') ||
+		(c >= '0' && c <= '9')
 }
