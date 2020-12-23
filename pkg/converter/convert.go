@@ -18,7 +18,7 @@ func Convert(text string) string {
 	// whitelist approach
 	tempText := ""
 	for _, c := range text {
-		if isNormalRune(c) {
+		if isNormalChar(c) {
 			tempText += string(c)
 			continue
 		}
@@ -35,7 +35,7 @@ func Convert(text string) string {
 
 func isNormalText(text string) bool {
 	for _, c := range text {
-		if !isNormalRune(c) {
+		if !isNormalChar(c) {
 			return false
 		}
 	}
@@ -43,7 +43,7 @@ func isNormalText(text string) bool {
 	return true
 }
 
-func isNormalRune(c rune) bool {
+func isNormalChar(c rune) bool {
 	return (c >= 'a' && c <= 'z') ||
 		(c >= '0' && c <= '9') ||
 		c == normalizedChar
