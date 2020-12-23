@@ -16,16 +16,16 @@ func Convert(text string) string {
 	text = strings.ToLower(text)
 
 	// whitelist approach
-	finalText := ""
+	tempText := ""
 	for _, c := range text {
 		if isNormalRune(c) {
-			finalText += string(c)
+			tempText += string(c)
 			continue
 		}
 
-		finalText += string(normalizedChar)
+		tempText += string(normalizedChar)
 	}
-	text = finalText
+	text = tempText
 
 	// remove duplicate _
 	text = reNormalizedDuplicate.ReplaceAllString(text, string(normalizedChar))
