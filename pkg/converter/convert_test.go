@@ -1,10 +1,10 @@
 package converter
 
 import (
-	"fmt"
 	"testing"
 
 	fuzz "github.com/google/gofuzz"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestConvert(t *testing.T) {
@@ -97,6 +97,6 @@ func TestFuzzyConvert(t *testing.T) {
 	for i := 0; i < 1000; i++ {
 		f.Fuzz(&text)
 		text = Convert(text)
-		fmt.Println(text)
+		assert.Equal(t, true, isNormalText(text))
 	}
 }

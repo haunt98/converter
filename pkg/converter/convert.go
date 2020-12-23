@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	normalizedChar = "_"
+	normalizedChar = '_'
 )
 
 var reNormalizedDuplicate = regexp.MustCompile(`_+`)
@@ -23,12 +23,12 @@ func Convert(text string) string {
 			continue
 		}
 
-		finalText += "_"
+		finalText += string(normalizedChar)
 	}
 	text = finalText
 
 	// remove duplicate _
-	text = reNormalizedDuplicate.ReplaceAllString(text, "_")
+	text = reNormalizedDuplicate.ReplaceAllString(text, string(normalizedChar))
 
 	return text
 }
@@ -45,5 +45,6 @@ func isNormalText(text string) bool {
 
 func isNormalRune(c rune) bool {
 	return (c >= 'a' && c <= 'z') ||
-		(c >= '0' && c <= '9')
+		(c >= '0' && c <= '9') ||
+		c == normalizedChar
 }
