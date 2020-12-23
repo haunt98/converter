@@ -9,28 +9,26 @@ const (
 	normalizedChar = "_"
 )
 
-var denyChars = []string{
-	`"`,
-	"'",
-	" ",
-	"\t",
-	"\n",
-	",",
-	"(",
-	")",
-	":",
-}
-
 var reNormalizedDuplicate = regexp.MustCompile(`_+`)
 
 func Convert(text string) string {
 	text = strings.TrimSpace(text)
 	text = strings.ToLower(text)
 
-	for _, denyChar := range denyChars {
-		text = strings.ReplaceAll(text, denyChar, normalizedChar)
-	}
+	// whitelist approach
+	finalText := ""
+	for _, c := range text {
+		if (c >= 'a' && c <= 'z') ||
+			(c >= '0' && c <= '9') {
+			finalText += string(c)
+			continue
+		}
 
+		finalText += "_"
+	}
+	text = finalText
+
+	// remove duplicate _
 	text = reNormalizedDuplicate.ReplaceAllString(text, "_")
 
 	return text
