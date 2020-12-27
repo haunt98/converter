@@ -28,7 +28,13 @@ func Convert(text string) string {
 	text = tempText
 
 	// remove duplicate _
+	// a__b -> a_b
 	text = reNormalizedDuplicate.ReplaceAllString(text, string(normalizedChar))
+
+	// remove prefix, postfix _
+	// _abc_ -> abc
+	text = strings.TrimPrefix(text, string(normalizedChar))
+	text = strings.TrimSuffix(text, string(normalizedChar))
 
 	return text
 }
