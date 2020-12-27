@@ -24,13 +24,13 @@ func TestConvert(t *testing.T) {
 		},
 		{
 			name: "single quote",
-			text: "'abc'",
-			want: "_abc_",
+			text: "a'b'c",
+			want: "a_b_c",
 		},
 		{
 			name: "double quote",
-			text: `"abc"`,
-			want: "_abc_",
+			text: `a"b"c`,
+			want: "a_b_c",
 		},
 		{
 			name: "space",
@@ -59,8 +59,8 @@ func TestConvert(t *testing.T) {
 		},
 		{
 			name: "parenthesis",
-			text: "(ab)",
-			want: "_ab_",
+			text: "a(b)c",
+			want: "a_b_c",
 		},
 		{
 			name: "tab",
@@ -81,6 +81,21 @@ func TestConvert(t *testing.T) {
 			name: "_ duplicate",
 			text: "a__b___c",
 			want: "a_b_c",
+		},
+		{
+			name: "prefix _",
+			text: "_abc",
+			want: "abc",
+		},
+		{
+			name: "postfix _",
+			text: "abc_",
+			want: "abc",
+		},
+		{
+			name: "prefix, postfix _",
+			text: "_abc_",
+			want: "abc",
 		},
 	}
 
