@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## v0.5.0 (2021-1-18)
+
+### Added
+
+- feat(converter): remove prefix, postfix _
+
+### Others
+
+- chore: bump golangci-lint v1.34 in github action
+
+- chore(readme): update badges
+
+- test(converter): unit test for prefix, postfix _
+
+- chore(changelog): generate v0.4.0
+
 ## v0.4.0 (2020-12-23)
 
 ### Added
